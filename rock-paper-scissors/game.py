@@ -1,80 +1,70 @@
 import random
 
-print("Welcome to Rock Paper Scisors")
+# program art
+rock_pic = '''
+       ,--.--._
+------" _, \___)
+        / _/____)
+        \//(____)
+------\     (__)
+       `-----"
+       '''
 
+paper_pic = ''' 
+           ___..__
+  __..--""" ._ __.'
+              "-..__
+            '"--..__";
+ ___        '--...__"";
+    `-..__ '"---..._;"
+          """"----' '''
+
+scissors_pic = '''
+    .-.  _
+    | | / )
+    | |/ /
+   _|__ /_
+  / __)-' )
+  \  `(.-')
+   > ._>-'
+  / \/
+'''
+
+
+# Greeting
+print("Welcome to Rock Paper Scisors!")
+# List of possible moves
 moves = ["rock", "paper", "scissors"]
-
-player = input("Choose your weapon rock, paper, or scissors?\n")
-computer = random.choice(moves)
-print(f"The computer chose {computer}.")
-
-if player == 'rock' and computer == 'scissors':
-    print("You win!") 
-elif player == 'paper' and computer == 'rock':
+# Prompt player for their move
+player = int(input("Choose your weapon type 0 for rock, 1 for paper, or 2 for scissors?\n"))
+# Computer makes a random selection
+computer = random.randint(0,2)
+# Moves are printed to the console
+print(f"You chose {moves[player]}")
+print(f"The computer chose {moves[computer]}.")
+# Game logic
+if player == 0 and computer == 2:
     print("You win!")
-elif player == 'scissors' and computer == 'paper':
+elif player == 1 and computer == 0:
+    print("You win!")
+elif player == 2 and computer == 1:
     print("You win!")
 elif player == computer:
     print("Draw")
 else:
-    print("You Lose")
+    print("You lose!")
 
-if player == 'paper':
-    print(''' PLAYER
-           ___..__
-  __..--""" ._ __.'
-              "-..__
-            '"--..__";
- ___        '--...__"";
-    `-..__ '"---..._;"
-          """"----' ''')
-elif player == 'rock':
-    print(''' PLAYER
-       ,--.--._
-------" _, \___)
-        / _/____)
-        \//(____)
-------\     (__)
-       `-----"
-       ''')
-else:
-    print(''' PLAYER
-    .-.  _
-    | | / )
-    | |/ /
-   _|__ /_
-  / __)-' )
-  \  `(.-')
-   > ._>-'
-  / \/
-''')
+# Artwork Logic
+if player == 0:
+    print("Player", rock_pic)
+if player == 1:
+    print("Player", paper_pic)
+elif player == 2:
+    print("Player", scissors_pic)
 
-if computer == 'paper':
-    print(''' COMPUTER
-           ___..__
-  __..--""" ._ __.'
-              "-..__
-            '"--..__";
- ___        '--...__"";
-    `-..__ '"---..._;"
-          """"----' ''')
-if computer == 'rock':
-    print(''' COMPUTER
-       ,--.--._
-------" _, \___)
-        / _/____)
-        \//(____)
-------\     (__)
-       `-----"
-       ''')
-if computer == 'scissors':
-    print(''' COMPUTER
-    .-.  _
-    | | / )
-    | |/ /
-   _|__ /_
-  / __)-' )
-  \  `(.-')
-   > ._>-'
-  / \/
-''')
+if computer == 0:
+    print("Computer", rock_pic)
+if computer == 1:
+    print("Computer", paper_pic)
+if computer == 2:
+    print("Computer", scissors_pic)
