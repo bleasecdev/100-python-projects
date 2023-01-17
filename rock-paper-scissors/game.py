@@ -43,6 +43,8 @@ computer = random.randint(0,2)
 print(f"You chose {moves[player]}")
 print(f"The computer chose {moves[computer]}.")
 # Game logic
+if player >= 3 or player < 0:
+    print("Invalid number, you lose!")
 if player == 0 and computer == 2:
     print("You win!")
 elif player == 1 and computer == 0:
@@ -68,3 +70,5 @@ if computer == 1:
     print("Computer", paper_pic)
 if computer == 2:
     print("Computer", scissors_pic)
+
+    
