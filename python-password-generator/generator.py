@@ -1,11 +1,12 @@
 import random 
 
+## My Original Solution
 
 # Establish lists containg useable data 
-letters = ['a','b','c','d','e','f','g','g','h','i','j',
+letters = ['a','b','c','d','e','f','g','h','i','j',
 'k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-symbols = ['$','#','%','&','*','!','@']
+symbols = ['$','#','%','&','*','!','@','+','(',')']
 
 # Greeting
 print("Welcome to the Password Generator")
@@ -43,3 +44,6 @@ password = "".join(shuffled_list)
 
 # Returns the password to the user
 print(f"Your password is: {password}")
+
+
+
