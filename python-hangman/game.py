@@ -1,67 +1,13 @@
 import random
+import game_art
+import game_words
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
 
-# Word list 
-word_list = ["hired", "wealthy", "magic", "love", "dance"]
+
+
 
 # generate a random word. 
-random_word = random.choice(word_list)
+random_word = random.choice(game_words.word_list)
 
 end_of_game = False
 
@@ -69,19 +15,27 @@ display = []
 
 lives = 6
 
-def print_stages(stage):
-    print(stages[stage])
+end_of_game = False
+
+print(game_art.logo)
+print(random_word)
+
 
 for _ in range(len(random_word)):
     display += "_"
 print(display)
 
-end_of_game = False
+
 
 while not end_of_game:
-    print_stages(lives)
+    game_art.print_stages(lives)
     # Ask the user to guess a letter.  
     guess = input("Guess a letter:").lower()
+
+    if guess in display:
+        print(f"you already guessed {guess}")
+        lives -=1
+
 #Check if the letter the user guessed is in the word
     for position in range(len(random_word)):
         letter = random_word[position]
