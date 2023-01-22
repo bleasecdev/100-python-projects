@@ -1,14 +1,17 @@
 import program_art
 
+# program art
 print(program_art.logo)
 
+#alphabet
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
 'k', 'l' 'm', 'n', 'o', 'p', 'q', 'r', 
 's','t', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# Prompt user for encryption or decryption. 
+# Variable that controls the while loop. 
 again = True
 
+# Encryption function
 def encryption(message, shift_num):
     output = []
     for char in message:
@@ -17,7 +20,7 @@ def encryption(message, shift_num):
         code = "".join(output)
     print(f"Here is your encoded message: {code}")
 
-
+# Decryption function
 def decryption(message, shift_num):
     output = []
     for char in message:
@@ -25,7 +28,7 @@ def decryption(message, shift_num):
         decode = "".join(output)
     print(f"Here is your decoded message: {decode}")
 
-
+# While loop containg program logic. 
 while again == True:
     command = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
     message = input("Type your message:\n").lower()
@@ -44,16 +47,6 @@ while again == True:
         again = False
     else:
         again = True
-
-
-
-
-
-
-
-
-
-
 
 
 
