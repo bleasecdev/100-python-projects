@@ -16,8 +16,8 @@ def encryption(message, shift_num):
     output = []
     for char in message:
         if char in letters:
-            output.append(letters.index(char))
-    return output
+            output.append(letters[letters.index(char) + int(shift_num)])
+    return "".join(output)
 
 
 print(encryption(message, shift_num))
