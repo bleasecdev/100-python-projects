@@ -16,7 +16,8 @@ def encryption(message, shift_num):
     output = []
     for char in message:
         if char in letters:
-            output.append(letters[letters.index(char) + int(shift_num)])
+            output.append(letters[letters.index(char) + shift_num])
+        else: output.append(char)    
         code = "".join(output)
     print(f"Here is your encoded message: {code}")
 
@@ -24,7 +25,10 @@ def encryption(message, shift_num):
 def decryption(message, shift_num):
     output = []
     for char in message:
-        output.append(letters[letters.index(char) - int(shift_num)])
+        if char in letters:
+            output.append(letters[letters.index(char) - shift_num])
+        else:
+            output.append(char)
         decode = "".join(output)
     print(f"Here is your decoded message: {decode}")
 
@@ -32,7 +36,8 @@ def decryption(message, shift_num):
 while again == True:
     command = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
     message = input("Type your message:\n").lower()
-    shift_num = input("Type shift number:\n")
+    shift_num = int(input("Type shift number:\n"))
+    shift_num = shift_num % 26
 
     if command == 'encode':   
         encryption(message, shift_num)
