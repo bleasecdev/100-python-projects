@@ -13,11 +13,11 @@ shift_num = input("Type shift number:\n")
 
 
 def encryption(message, shift_num):
-    output = ""
+    output = []
     for char in message:
-        for letter in letters:
-            if char == letter:
-                return [char]
+        if char in letters:
+            output.append(letters.index(char))
+    return output
 
 
 print(encryption(message, shift_num))
