@@ -44,7 +44,7 @@ while not end_of_game:
         if lives == 0:
             end_of_game = True
             print("You Lose!")
-
+            print(random_word)
 # Condition for victory.   
     if "_" not in display:
         end_of_game = True     
