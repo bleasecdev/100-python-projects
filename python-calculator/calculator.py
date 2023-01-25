@@ -1,8 +1,9 @@
 import art
 
+# Program artwork
 print(art.logo)
 
-   
+# Functions for mathematical operations   
 def add(n1, n2):
     return n1 + n2
 
@@ -22,6 +23,7 @@ operations = {
     "*": mul
 }
 
+# Calculator function
 def calculator():
 
     n1 = float(input("What's the first number?: "))
