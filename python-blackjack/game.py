@@ -74,8 +74,7 @@ def play_game():
     print(f"Computer's final hand: {computers_cards}, final score: {computer_score}")
     print(compare(user_score, computer_score))
 
-    #Hint 14: Ask the user if they want to restart the game. If they answer yes, 
-    # clear the console and start a new game of blackjack and show the logo from art.py.
+    
     while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
         os.system('clear')
         play_game()
