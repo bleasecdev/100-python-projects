@@ -8,47 +8,43 @@ print(len(game_data.data))
 
 # Create a function that will grab the name, follower count,
 # and country from a random item in the data dictionary. 
-celeb_info_a = []
-celeb_info_b = []
+
 points = 0
 
 def get_data():
     dict = game_data.data[random.randint(0,49)]
+    celeb_info = []
     for celebrity_data in dict.values():
-        celeb_info_a.append(celebrity_data)
-    return celeb_info_a,
+        celeb_info.append(celebrity_data)
+    return celeb_info
 
-def get_data_2():
-    dict = game_data.data[random.randint(0,49)]
-    for celebrity_data in dict.values():
-        celeb_info_b.append(celebrity_data)
-    return celeb_info_b
-    
+A = get_data()
+B = get_data()
 
-# Create a function taht compares two sets of celebrity information
-# formated in a sentence. 
+print(A, B)
 
-get_data()
-get_data_2()
+# Create a function that compares two sets of celebrity information
+# and returns the greater value
 
-def compare(A, B):
-    if A[1] > B[1]:
-        return A
-    else: 
-        return B
-    
+def compare(data_a, data_b):
+    global A
+    if data_a[1] > data_b[1]:
+        A = data_a
+    if data_b[1] > data_a[1]:
+        A = data_b
+    return A
 
-print(compare(celeb_info_a, celeb_info_b))
+correct = compare(A, B)
 
+print(correct)
 
 
 
 # Create a function that will allow the user to play the again, 
 # until they guess wrong.  
 
-print(f"Compare A: {celeb_info_a[0]}, a {celeb_info_a[2]}, from {celeb_info_a[3]}")
-print(f"Compare B: {celeb_info_b[0]}, a {celeb_info_b[2]}, from {celeb_info_b[3]}")
 
-user_choice = input("Who has more followers? Type 'A' or 'B': ")
+
+# user_choice = input("Who has more followers? Type 'A' or 'B': ")
 
 
