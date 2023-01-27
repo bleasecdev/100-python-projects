@@ -21,51 +21,54 @@ def get_data():
 A = get_data()
 B = get_data()
 
-print(A, B)
 
-while playing:
-    def user_choice(data_a, data_b):
-        print(f"Compare A: {data_a[0]} a {data_a[2]}, from {data_a[3]}")
-        print(f"Compare B: {data_b[0]} a {data_b[2]}, from {data_b[3]}")
-        choice = input("Who has more followers? Type 'A' or 'B': ").upper()
-        if choice == 'A':
-            return data_a
-        if choice == 'B':
-            return data_b
+def game(info1, info2):
+    playing = True
+    points = 0
+    while playing:
+        def user_choice(data_a, data_b):
+            print(f"Compare A: {data_a[0]} a {data_a[2]}, from {data_a[3]}")
+            print(f"Compare B: {data_b[0]} a {data_b[2]}, from {data_b[3]}")
+            choice = input("Who has more followers? Type 'A' or 'B': ").upper()
+            if choice == 'A':
+                return data_a
+            if choice == 'B':
+                return data_b
 
-    choice = user_choice(A, B)
+        choice = user_choice(info1, info2)
 
-    print(choice)
-
-
-    # Create a function that compares two sets of celebrity information
-    # and returns the greater value
-
-    def compare(data_a2, data_b2):
-        global A
-        if data_a2[1] > data_b2[1]:
-            A = data_a2
-        if data_b2[1] > data_a2[1]:
-            A = data_b2
-        return A
-
-    correct = compare(A, B)
+        print(choice)
 
 
+        # Create a function that compares two sets of celebrity information
+        # and returns the greater value
 
-    # Create a function that will allow the user to play the again, 
-    # until they guess wrong.  
+        def compare(data_a2, data_b2):
+            global A
+            if data_a2[1] > data_b2[1]:
+                A = data_a2
+            if data_b2[1] > data_a2[1]:
+                A = data_b2
+            return A
 
-
-    if choice == correct:
-        points += 1
-        A = correct
-        user_choice(A, B)
-    if choice != correct:
-        playing = False
+        correct = compare(info1, info2)
 
 
 
+        # Create a function that will allow the user to play the again, 
+        # until they guess wrong.  
+
+
+        if choice == correct:
+            points += 1
+            A = correct
+            B = get_data()
+            game(A, B)
+        if choice != correct:
+            playing = False
+
+
+game(A, B)
 
 
 
