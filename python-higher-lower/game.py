@@ -2,13 +2,13 @@ import art
 import game_data
 import random
 
-print(len(game_data.data))
+# print(len(game_data.data))
 
 
 
 # Create a function that will grab the name, follower count,
 # and country from a random item in the data dictionary. 
-
+playing = True
 points = 0
 
 def get_data():
@@ -23,28 +23,52 @@ B = get_data()
 
 print(A, B)
 
-# Create a function that compares two sets of celebrity information
-# and returns the greater value
+while playing:
+    def user_choice(data_a, data_b):
+        print(f"Compare A: {data_a[0]} a {data_a[2]}, from {data_a[3]}")
+        print(f"Compare B: {data_b[0]} a {data_b[2]}, from {data_b[3]}")
+        choice = input("Who has more followers? Type 'A' or 'B': ").upper()
+        if choice == 'A':
+            return data_a
+        if choice == 'B':
+            return data_b
 
-def compare(data_a, data_b):
-    global A
-    if data_a[1] > data_b[1]:
-        A = data_a
-    if data_b[1] > data_a[1]:
-        A = data_b
-    return A
+    choice = user_choice(A, B)
 
-correct = compare(A, B)
-
-print(correct)
-
+    print(choice)
 
 
-# Create a function that will allow the user to play the again, 
-# until they guess wrong.  
+    # Create a function that compares two sets of celebrity information
+    # and returns the greater value
+
+    def compare(data_a2, data_b2):
+        global A
+        if data_a2[1] > data_b2[1]:
+            A = data_a2
+        if data_b2[1] > data_a2[1]:
+            A = data_b2
+        return A
+
+    correct = compare(A, B)
 
 
 
-# user_choice = input("Who has more followers? Type 'A' or 'B': ")
+    # Create a function that will allow the user to play the again, 
+    # until they guess wrong.  
+
+
+    if choice == correct:
+        points += 1
+        A = correct
+        user_choice(A, B)
+    if choice != correct:
+        playing = False
+
+
+
+
+
+
+
 
 
