@@ -1,6 +1,7 @@
 import art
 import game_data
 import random
+import os
 
 # print(len(game_data.data))
 
@@ -22,13 +23,15 @@ B = get_data()
 playing = True
 
 def game(info1, info2):
-    points = 0
+    global points
     global playing
-    print(info1,info2)
     while playing:
         def user_choice(data_a, data_b):
+            print(art.logo)
             print(f"Compare A: {data_a[0]} a {data_a[2]}, from {data_a[3]}")
+            print(art.vs)
             print(f"Compare B: {data_b[0]} a {data_b[2]}, from {data_b[3]}")
+            print(f"You currently have {points} point(s)")
             choice = input("Who has more followers? Type 'A' or 'B': ").upper()
             if choice == 'A':
                 return data_a
@@ -36,8 +39,6 @@ def game(info1, info2):
                 return data_b
 
         choice = user_choice(info1, info2)
-
-        print(choice)
 
 
         # Create a function that compares two sets of celebrity information
@@ -59,10 +60,12 @@ def game(info1, info2):
         # until they guess wrong.  
         if choice == correct:
             points += 1
+            os.system('clear')
             A = correct
             B = get_data()
             game(A, B)
         if choice != correct:
+            print(f"You scored {points} point(s), Thanks for playing.")
             playing = False
 
 
