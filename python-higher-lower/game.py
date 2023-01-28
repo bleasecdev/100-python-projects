@@ -46,6 +46,9 @@ def game(info1, info2):
 
         def compare(data_a2, data_b2):
             global A
+            global B
+            if data_a2 == data_b2:
+                compare(A, B)
             if data_a2[1] > data_b2[1]:
                 A = data_a2
             if data_b2[1] > data_a2[1]:
