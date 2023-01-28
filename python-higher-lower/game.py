@@ -8,7 +8,6 @@ import random
 
 # Create a function that will grab the name, follower count,
 # and country from a random item in the data dictionary. 
-playing = True
 points = 0
 
 def get_data():
@@ -20,11 +19,12 @@ def get_data():
 
 A = get_data()
 B = get_data()
-
+playing = True
 
 def game(info1, info2):
-    playing = True
     points = 0
+    global playing
+    print(info1,info2)
     while playing:
         def user_choice(data_a, data_b):
             print(f"Compare A: {data_a[0]} a {data_a[2]}, from {data_a[3]}")
@@ -57,8 +57,6 @@ def game(info1, info2):
 
         # Create a function that will allow the user to play the again, 
         # until they guess wrong.  
-
-
         if choice == correct:
             points += 1
             A = correct
