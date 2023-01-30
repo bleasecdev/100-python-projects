@@ -24,6 +24,20 @@ MENU = {
     }
 }
 
+#function that takes money and return change.
+
+def payment():
+    coins = ['quarters', 'nickles','dimes','pennies']
+    coin_value = [.25, .05, .10, .01]
+    user_paid = []
+    count = 0
+    for _ in range(len(coins)):
+        num_of_coins = int(input(f"How many {coins[count]}?"))
+        user_paid.append(num_of_coins * coin_value[count])
+        count += 1
+    print(sum(coin_value))
+
+
 resources = {
     "water": 300,
     "milk": 200,
@@ -32,11 +46,13 @@ resources = {
 
 
 # Function that takes user inputs
-message = input("What would you like? (espresso/latte/cappucino):")
-if message == 'report':
+order = input("What would you like? (espresso/latte/cappucino):")
+
+if order == 'report':
     for key, value in resources.items():
         print(key, ':', value)
-if message == 'espresso':
+
+if order == 'espresso' and resources['water'] >= 50 and resources['coffee'] >= 18:
+    payment()
 
 
-# Function that checks if resources are available. 
