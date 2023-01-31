@@ -44,6 +44,19 @@ resources = {
     "coffee": 100,
 }
 
+def make_drink(type_of_drink):
+    if type_of_drink == 'espresso':
+        resources['water'] = resources['water'] - 50
+        resources["coffee"] = resources['coffee'] - 18
+    if type_of_drink == 'latte':
+        resources["water"] = resources["water"] - 200
+        resources["milk"] = resources["milk"] - 150
+        resources['coffee'] = resources['coffee'] - 24
+    if type_of_drink == 'cappuccino':
+        resources['water'] = resources["water"] - 250
+        resources['milk'] = resources['milk'] - 100
+        resources["coffee"] = resources['coffee'] - 24
+    return resources
 
 
 
@@ -52,7 +65,7 @@ off = False
 
 
 while not off:
-    order = input("What would you like? (espresso/latte/cappucino):")
+    order = input("What would you like? (espresso/latte/cappuccino):").lower()
 
     if order == 'report':
         for key, value in resources.items():
@@ -62,26 +75,34 @@ while not off:
         amount_paid = payment()
         if amount_paid >= MENU['espresso']['cost']:
             print(f"Here is your change, ${round(amount_paid - (MENU['espresso']['cost']), 2)}")
+            new_resources = make_drink(order)
             print("Here is your espresso.")
-        else:
+        if amount_paid < MENU['espresso']['cost']:
             print("Money refunded.")
-            off = True
+        if resources['water'] < 50 or resources['coffee'] < 18:
+            print("out of ingredients please turn off machine to restock.")
     if order == 'latte' and resources['water'] >= 200 and resources['water'] >= 24 and resources['milk'] >= 150:
         amount_paid = payment()
         if amount_paid >= MENU['latte']['cost']:
             print(f"Here is your change, ${round(amount_paid - (MENU['latte']['cost']), 2)}")
+            new_resources = make_drink(order)
             print('Here is your latte.')
-        else:
+        if amount_paid < MENU['latte']['cost']:
             print("Money refunded.")
-            off = True
+        if resources['water'] < 200 or resources['water'] < 24 or resources['milk'] < 150:
+            print("out of ingredients please turn off machine to restock.")
     if order == 'cappuccino' and resources['water'] >= 250 and resources['coffee'] >= 24 and resources['milk'] >= 100:
         amount_paid = payment()
         if amount_paid >= MENU["cappuccino"]['cost']:
-            print(f"Here is your change, ${round(amount_paid - (MENU['cappucino']['cost']), 2)}")
+            print(f"Here is your change, ${round(amount_paid - (MENU['cappuccino']['cost']), 2)}")
+            new_resources = make_drink(order)
             print("Here is your cappuccino.")
-        else:
+        if amount_paid < MENU['cappuccino']['cost']:
             print("Money refunded.")
-            off = True
+        if resources['water'] < 250 or resources['coffee'] < 24 or resources['milk'] < 100:
+            print("out of ingredients please turn off machine to restock.")
+    if order == 'off':
+        off = True
    
 
 
