@@ -65,9 +65,9 @@ off = False
 
 def coffee_machine():
     global off
-    while not off:
+    while off == False:
         order = input("What would you like? (espresso/latte/cappuccino):").lower()
-
+        
         if order == 'report':
             for key, value in resources.items():
                 print(key, ':', value)
@@ -81,7 +81,7 @@ def coffee_machine():
             if amount_paid >= MENU['espresso']['cost']:
                 print(f"Here is your change, ${round(amount_paid - (MENU['espresso']['cost']), 2)}")
                 new_resources = make_drink(order)
-                print("Here is your espresso.")
+                print("Here is your espresso ☕️.")
                 coffee_machine()
 
             if amount_paid < MENU['espresso']['cost']:
@@ -100,7 +100,7 @@ def coffee_machine():
             if amount_paid >= MENU['latte']['cost']:
                 print(f"Here is your change, ${round(amount_paid - (MENU['latte']['cost']), 2)}")
                 new_resources = make_drink(order)
-                print('Here is your latte.')
+                print('Here is your latte ☕️.')
                 coffee_machine()
 
             if amount_paid < MENU['latte']['cost']:
@@ -118,7 +118,7 @@ def coffee_machine():
             if amount_paid >= MENU["cappuccino"]['cost']:
                 print(f"Here is your change, ${round(amount_paid - (MENU['cappuccino']['cost']), 2)}")
                 new_resources = make_drink(order)
-                print("Here is your cappuccino.")
+                print("Here is your cappuccino ☕️.")
                 coffee_machine()
 
             if amount_paid < MENU['cappuccino']['cost']:
@@ -128,6 +128,7 @@ def coffee_machine():
         if order == 'cappuccino' and resources['water'] < 250 or resources['coffee'] < 24 or resources['milk'] < 100:
             print("out of ingredients please turn off machine to restock.")
             coffee_machine()
+
         if order == 'off':
             off = True
 
