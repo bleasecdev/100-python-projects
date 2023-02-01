@@ -80,7 +80,7 @@ while not off:
         if amount_paid < MENU['espresso']['cost']:
             print("Money refunded.")
         if resources['water'] < 50 or resources['coffee'] < 18:
-            print("out of ingredients please turn off machine to restock.")
+            print("out of ingredients for espresso please turn off machine to restock.")
     if order == 'latte' and resources['water'] >= 200 and resources['water'] >= 24 and resources['milk'] >= 150:
         amount_paid = payment()
         if amount_paid >= MENU['latte']['cost']:
@@ -90,7 +90,7 @@ while not off:
         if amount_paid < MENU['latte']['cost']:
             print("Money refunded.")
         if resources['water'] < 200 or resources['water'] < 24 or resources['milk'] < 150:
-            print("out of ingredients please turn off machine to restock.")
+            print("out of ingredients latte please turn off machine to restock.")
     if order == 'cappuccino' and resources['water'] >= 250 and resources['coffee'] >= 24 and resources['milk'] >= 100:
         amount_paid = payment()
         if amount_paid >= MENU["cappuccino"]['cost']:
@@ -100,7 +100,7 @@ while not off:
         if amount_paid < MENU['cappuccino']['cost']:
             print("Money refunded.")
         if resources['water'] < 250 or resources['coffee'] < 24 or resources['milk'] < 100:
-            print("out of ingredients please turn off machine to restock.")
+            print("out of ingredients for cappuccino please turn off machine to restock.")
     if order == 'off':
         off = True
    
