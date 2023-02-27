@@ -198,7 +198,7 @@ def draw_spirograph(size):
         timmy_the_turtle.circle(100)
         timmy_the_turtle.setheading(timmy_the_turtle.heading()+size)
 
-draw_spirograph(2)
+timmy_the_turtle.dot()
 
 screen = Screen()
 screen.exitonclick()  
