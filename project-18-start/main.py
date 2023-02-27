@@ -180,16 +180,25 @@ def decagon():
 # change_color()
 # nonagon()
 
-distance = random.randint(5,20)
-directions = [0, 90, 180, 270]
+# Random Walk
+# distance = random.randint(5,20)
+# directions = [0, 90, 180, 270]
 
-timmy_the_turtle.pensize(15)
+# timmy_the_turtle.pensize(15)
 timmy_the_turtle.speed("fastest")
 
-for _ in range(200):
-    change_color()
-    timmy_the_turtle.fd(30)
-    timmy_the_turtle.setheading(random.choice(directions))
+# for _ in range(200):
+#     change_color()
+#     timmy_the_turtle.fd(30)
+#     timmy_the_turtle.setheading(random.choice(directions))
+
+def draw_spirograph(size):
+    for _ in range(int(360 / size)):
+        change_color()
+        timmy_the_turtle.circle(100)
+        timmy_the_turtle.setheading(timmy_the_turtle.heading()+size)
+
+draw_spirograph(2)
 
 screen = Screen()
-screen.exitonclick()
+screen.exitonclick()  
