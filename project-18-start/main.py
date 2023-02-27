@@ -141,7 +141,6 @@ def nonagon():
     timmy_the_turtle.fd(100)
     timmy_the_turtle.rt(40)
 
-change_color()
 
 def decagon():
     timmy_the_turtle.fd(100)
@@ -167,20 +166,30 @@ def decagon():
 
 
 
-triangle()
-change_color()
-square()
-change_color()
-pentagon()
-change_color()
-hexagon()
-change_color()
-heptagon()
-change_color()
-octagon()
-change_color()
-nonagon()
+# triangle()
+# change_color()
+# square()
+# change_color()
+# pentagon()
+# change_color()
+# hexagon()
+# change_color()
+# heptagon()
+# change_color()
+# octagon()
+# change_color()
+# nonagon()
 
+distance = random.randint(5,20)
+directions = [0, 90, 180, 270]
+
+timmy_the_turtle.pensize(15)
+timmy_the_turtle.speed("fastest")
+
+for _ in range(200):
+    change_color()
+    timmy_the_turtle.fd(30)
+    timmy_the_turtle.setheading(random.choice(directions))
 
 screen = Screen()
 screen.exitonclick()
