@@ -1,7 +1,11 @@
 from turtle import Turtle, Screen
+import turtle
 import random
-
 tim = Turtle()
+tim.colormode(255)
+tim.shape("turtle")
+tim.speed("fastest")
+
 
 colors_list = [(250, 246, 243), (248, 245, 246), (212, 154, 97),
 (239, 246, 243), (52, 108, 132), (178, 78, 33), (198, 143, 34), (123, 80, 97), 
@@ -31,16 +35,15 @@ def canvas(num_of_rows, num_of_dots):
         jump-=10
         tim.goto(0,jump)
 
-tim.shape("turtle")
-tim.speed("fastest")
+
 canvas(20,20)
 
 screen = Screen()
 # screen.exitonclick()
 
-the_color = random.choice(colors_list)
-R = the_color[0]
-G = the_color[1]
-B = the_color[2]
-print(the_color)
-print(R,G,B)
+# the_color = random.choice(colors_list)
+# R = the_color[0]
+# G = the_color[1]
+# B = the_color[2]
+# print(the_color)
+# print(R,G,B)
