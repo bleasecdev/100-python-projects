@@ -3,15 +3,23 @@ import random
 
 tim = Turtle()
 
-def change_color():
-    R = random.random()
-    B = random.random()
-    G = random.random()
-    return tim.color(R,G,B)
+colors_list = [(250, 246, 243), (248, 245, 246), (212, 154, 97),
+(239, 246, 243), (52, 108, 132), (178, 78, 33), (198, 143, 34), (123, 80, 97), 
+(235, 240, 244), (116, 155, 171)]
+
+# def change_color():
+#     R = random.random()
+#     B = random.random()
+#     G = random.random()
+#     return tim.color(R,G,B)
 
 def paint(dots):
     for _ in range(dots):
-        change_color()
+        the_color = random.choice(colors_list)
+        R = the_color[0]
+        G = the_color[1]
+        B = the_color[2]
+        tim.pencolor(R, G, B)
         tim.dot()
         tim.penup()
         tim.forward(20)
@@ -28,4 +36,11 @@ tim.speed("fastest")
 canvas(20,20)
 
 screen = Screen()
-screen.exitonclick()
+# screen.exitonclick()
+
+the_color = random.choice(colors_list)
+R = the_color[0]
+G = the_color[1]
+B = the_color[2]
+print(the_color)
+print(R,G,B)
