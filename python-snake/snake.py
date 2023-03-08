@@ -5,7 +5,7 @@ MOVE_DISTANCE = 20
 
 class Snake:
     
-    def __init__(self, segments):
+    def __init__(self):
         self.segments = []
         self.create_snake()
 
@@ -24,3 +24,14 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].fd(MOVE_DISTANCE)
 
+    def up(self):
+        self.segments[0].setheading(90)
+    
+    def down(self):
+        self.segments[0].setheading(270)
+
+    def left(self):
+        self.segments[0].setheading(180)
+
+    def right(self):
+        self.segments[0].setheading(0)
